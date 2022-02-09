@@ -14,24 +14,34 @@ public class Jod : MonoBehaviour
     private GameObject[] deathList;
     private float foodsCount;
     public TextMeshProUGUI speedAvg;
-    private GameObject[] animalBois;
-    private float speedAvgNum;
+    public TextMeshProUGUI animalNumDisplay;
+    public TextMeshProUGUI TimerDisplay;
+    float speedAvgNum = 0;
 
     void Start () {
         FoodSpawn.FoodFunction(foodNumber, foodPrefab);
         AnimalSpawn.AnimalSpawning(animalNum, animalPrefab);
+        speedAvg = speedCount(speedAvgNum, speedAvg);
+        animalNumDisplay.text = "# of Animals: " + animalNum.ToString();
     }
 
     void FixedUpdate() {
         TimeCount += Time.deltaTime;
-        if (TimeCount >= 37) {
+        TimerDisplay.text = "Timer: " + TimeCount.ToString();
+        if (TimeCount >= 35) {
+            animalNumDisplay.text = "# of Animals: " + animalNum.ToString();
             GameObject[] foods = GameObject.FindGameObjectsWithTag("Food");
             foreach(GameObject food in foods) {
                 Destroy(food);
             }
             FoodSpawn.FoodFunction(foodNumber, foodPrefab);
             TimeCount = 0;
+            speedAvg = speedCount(speedAvgNum, speedAvg);
         }
+    }
+
+    TextMeshProUGUI speedCount(float speedAvgNum, TextMeshProUGUI speedAvg) {
+        GameObject[] animalBois;
         animalBois = GameObject.FindGameObjectsWithTag("Animal");
         speedAvgNum = 0;
         for (int i = 0; i < animalBois.Length; i++) {
@@ -40,5 +50,6 @@ public class Jod : MonoBehaviour
         }
         speedAvgNum = speedAvgNum / animalBois.Length;
         speedAvg.text = "Speed Average: " + speedAvgNum.ToString();
+        return speedAvg;
     }
 }

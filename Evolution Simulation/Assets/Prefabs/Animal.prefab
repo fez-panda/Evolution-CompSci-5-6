@@ -152,5 +152,5 @@ MonoBehaviour:
   foodCount: 0
   AnimalPrefab: {fileID: 2733826243909166139}
   AnimalSense: 10
-  AnimalSpeed: 10
+  AnimalSpeed: 1
   ground: {fileID: 953554114955749140, guid: fa144ccf61b7b514aa403fb5d511f872, type: 3}

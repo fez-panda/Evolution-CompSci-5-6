@@ -17,11 +17,11 @@ public class AnimalNav : MonoBehaviour
     private float randomness1;
     private float randomness2;
     private float randomness3;
-    private float j = 0;
     private bool analyzed = true;
     private Vector3 closestP;
     private float timerWander = 0;
     private Vector3 previous;
+    private float energy = 100f;
 
     public GameObject ground;
     private Jod jod;
@@ -36,24 +36,29 @@ public class AnimalNav : MonoBehaviour
         Debug.Log("here");
         //mutations
         randomness1 = Random.Range(1f, 10f);
-        if (randomness1 > 9) {
-            AnimalSpeed += Random.Range(-2f, 2f);
+        if (randomness1 > 7.5f) {
+            AnimalSpeed += Random.Range(-.5f, .5f);
             AnimalSense += Random.Range(-2f, 2f);
         }
     }
 
     void FixedUpdate()
     {
-        _navMeshAgent.speed = AnimalSpeed;
-        Vector3 place = navigation(_navMeshAgent, jod, foodCount, closestP, j, timerWander, previous);
-        _navMeshAgent.SetDestination(place);
-        previous = place;
-        j++;
+        _navMeshAgent.speed = AnimalSpeed * 10f;
+        if (energy > 0) {
+            Vector3 place = navigation(_navMeshAgent, jod, foodCount, closestP, timerWander, previous);
+            _navMeshAgent.SetDestination(place);
+            previous = place;
+            energy -= (Time.deltaTime * Pow(AnimalSpeed, 2));
+        } else if (energy <= 0) {
+            _navMeshAgent.SetDestination(transform.position);
+        }
         timerWander++;
         if (jod.TimeCount >= 35 && analyzed == false) {
             analyzed = true;
             EndOfDay(foodCount, jod, AnimalPrefab, transform.position);
             foodCount = 0;
+            energy = 100f;
         } else if (jod.TimeCount < 10) {
             analyzed = false;
         }
@@ -111,7 +116,7 @@ public class AnimalNav : MonoBehaviour
         return newTarget;
     } 
 
-    Vector3 navigation (NavMeshAgent _navMeshAgent, Jod jod, float foodCount, Vector3 closestP, float j, float timerWander, Vector3 previous) {
+    Vector3 navigation (NavMeshAgent _navMeshAgent, Jod jod, float foodCount, Vector3 closestP, float timerWander, Vector3 previous) {
         closestP = previous;
         if (jod.TimeCount >= 30 && foodCount >= 1 ) {
             closestP = transform.position;
