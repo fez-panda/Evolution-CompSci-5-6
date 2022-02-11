@@ -28,7 +28,7 @@ public class Jod : MonoBehaviour
     void FixedUpdate() {
         TimeCount += Time.deltaTime;
         TimerDisplay.text = "Timer: " + TimeCount.ToString();
-        if (TimeCount >= 35) {
+        if (TimeCount >= 36) {
             animalNumDisplay.text = "# of Animals: " + animalNum.ToString();
             GameObject[] foods = GameObject.FindGameObjectsWithTag("Food");
             foreach(GameObject food in foods) {

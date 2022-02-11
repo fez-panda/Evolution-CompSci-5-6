@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7cb9e268bea4c4d9bae34e34221726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodNumber: 50
+  foodNumber: 20
   foodPrefab: {fileID: 8318564198814218416, guid: 3f54772243da288478f9cdabdacd1f96, type: 3}
   animalPrefab: {fileID: 2733826243909166142, guid: 0a9bfe619bf7e4e44b236e244a24ce66, type: 3}
   animalNum: 10

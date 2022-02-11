@@ -22,6 +22,7 @@ public class AnimalNav : MonoBehaviour
     private float timerWander = 0;
     private Vector3 previous;
     private float energy = 100f;
+    bool survived;
 
     public GameObject ground;
     private Jod jod;
@@ -56,11 +57,15 @@ public class AnimalNav : MonoBehaviour
         timerWander++;
         if (jod.TimeCount >= 35 && analyzed == false) {
             analyzed = true;
-            EndOfDay(foodCount, jod, AnimalPrefab, transform.position);
+            survived = EndOfDay(foodCount, jod, AnimalPrefab, transform.position);
             foodCount = 0;
             energy = 100f;
+            if (survived == false) {
+                Destroy(gameObject);
+            }
         } else if (jod.TimeCount < 10) {
             analyzed = false;
+            survived = false;
         }
 
     }
@@ -72,11 +77,12 @@ public class AnimalNav : MonoBehaviour
         }
     }
 
-    void EndOfDay (int foodCount, Jod jod, GameObject AnimalPrefab, Vector3 current) {
+    bool EndOfDay (int foodCount, Jod jod, GameObject AnimalPrefab, Vector3 current) {
         GameObject animal;
         float posX = current.x;
         float posZ = current.z;
         bool homeSafe = false;
+        bool survival = false;
         if (Abs(posX) >= 47 || Abs(posZ) >= 47) {
             homeSafe = true;
         }
@@ -85,15 +91,17 @@ public class AnimalNav : MonoBehaviour
             Debug.Log("Spawned new: "+ jod.animalNum);
             animal = CreateChildren(AnimalPrefab);
             Instantiate(animal); 
+            survival = true;
+            return(survival);
         } else if  (foodCount == 1 && homeSafe) {
             Debug.Log("Survived " + jod.animalNum);
+            survival = true;
+            return(survival);
         } else {
-            jod.animalNum--; 
-            Debug.Log(jod.animalNum);
-            Debug.Log("Died " + jod.animalNum);
-            Destroy(gameObject);
+            survival = false;
+            jod.animalNum--;
+            return(survival);
         }
-
     }
 
     GameObject CreateChildren (GameObject AnimalPrefab) {
