@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 907, y: 442}
-  m_MaxSize: {x: 22002, y: 10000}
+  m_MinSize: {x: 911, y: 442}
+  m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 307
+  controlID: 2159
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -85,7 +85,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 286
+  controlID: 2160
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,9 +203,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 583.7453, y: 419.34256, z: 42.797363}
+    m_Target: {x: 15.332439, y: 1.6405487, z: 2.0562172}
     speed: 2
-    m_Value: {x: 583.7453, y: 419.34256, z: 42.797363}
+    m_Value: {x: 15.332439, y: 1.6405487, z: 2.0562172}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -252,13 +252,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.03965472, y: -0.16117732, z: -0.006488646, w: 0.9861781}
+    m_Target: {x: 0.21918823, y: -0.7344022, z: 0.27797034, w: 0.5792114}
     speed: 2
-    m_Value: {x: -0.039651945, y: -0.16116604, z: -0.006488192, w: 0.9861091}
+    m_Value: {x: 0.2191725, y: -0.7343495, z: 0.2779504, w: 0.57916987}
   m_Size:
-    m_Target: 177.62898
+    m_Target: 40.445988
     speed: 2
-    m_Value: 177.62898
+    m_Value: 40.445988
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -328,8 +328,8 @@ MonoBehaviour:
     y: 0
     width: 244
     height: 947
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -363,9 +363,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b8090000
       m_LastClickedID: 0
-      m_ExpandedIDs: 54fbffff
+      m_ExpandedIDs: 52fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -408,8 +408,8 @@ MonoBehaviour:
     y: 0
     width: 479
     height: 947
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -461,15 +461,15 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: E:\Unity Projects\Russell Ellis\Evolution CompSci 5-6\Evolution
+  m_LastProjectPath: C:\Unity Projects\Russell Ellis\Evolution-CompSci-5-6\Evolution
     Simulation
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 463d0000
-    m_LastClickedID: 15686
-    m_ExpandedIDs: 000000003e3d000000ca9a3b
+    m_SelectedIDs: 423d0000
+    m_LastClickedID: 15682
+    m_ExpandedIDs: 000000003a3d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -497,7 +497,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003e3d000000ca9a3b
+    m_ExpandedIDs: 000000003a3d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -522,8 +522,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ba0c0000
-    m_LastClickedInstanceID: 3258
+    m_SelectedInstanceIDs: b8090000
+    m_LastClickedInstanceID: 2488
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
@@ -612,7 +612,7 @@ MonoBehaviour:
     m_CachedPref: -160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 3258
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_LockTracker:

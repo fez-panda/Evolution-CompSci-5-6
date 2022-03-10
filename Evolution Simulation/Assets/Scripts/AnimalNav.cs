@@ -12,8 +12,11 @@ public class AnimalNav : MonoBehaviour
     private GameObject closest;
     private float distance;
     public GameObject AnimalPrefab;
+    //animal stats
     public float AnimalSense;
     public float AnimalSpeed;
+    public Vector3 AnimalSize = new Vector3(1f, 1f, 1f);
+
     private float randomness1;
     private float randomness2;
     private float randomness3;
@@ -27,7 +30,6 @@ public class AnimalNav : MonoBehaviour
     public GameObject ground;
     private Jod jod;
 
-
     void Start () {
         foodCount = 0;
         previous = transform.position;
@@ -40,17 +42,24 @@ public class AnimalNav : MonoBehaviour
         if (randomness1 > 7.5f) {
             AnimalSpeed += Random.Range(-.5f, .5f);
             AnimalSense += Random.Range(-2f, 2f);
+            float randomLad;
+            randomLad = Random.Range(-.5f, .5f);
+            AnimalSize.x += randomLad;
+            AnimalSize.y += randomLad;
+            AnimalSize.z += randomLad;
         }
+        _navMeshAgent.speed = AnimalSpeed * 10f * (1f / AnimalSize.x);
     }
 
     void FixedUpdate()
     {
-        _navMeshAgent.speed = AnimalSpeed * 10f;
+        gameObject.transform.localScale = AnimalSize;
         if (energy > 0) {
             Vector3 place = navigation(_navMeshAgent, jod, foodCount, closestP, timerWander, previous);
             _navMeshAgent.SetDestination(place);
             previous = place;
-            energy -= (Time.deltaTime * Pow(AnimalSpeed, 2));
+            float SizeX = AnimalSize.x;
+            energy -= (Time.deltaTime * Pow(AnimalSpeed, 2) * SizeX * 2);
         } else if (energy <= 0) {
             _navMeshAgent.SetDestination(transform.position);
         }

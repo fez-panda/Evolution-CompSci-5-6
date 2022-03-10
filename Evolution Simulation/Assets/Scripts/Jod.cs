@@ -21,7 +21,6 @@ public class Jod : MonoBehaviour
     void Start () {
         FoodSpawn.FoodFunction(foodNumber, foodPrefab);
         AnimalSpawn.AnimalSpawning(animalNum, animalPrefab);
-        speedAvg = speedCount(speedAvgNum, speedAvg);
         animalNumDisplay.text = "# of Animals: " + animalNum.ToString();
     }
 
@@ -36,6 +35,7 @@ public class Jod : MonoBehaviour
             }
             FoodSpawn.FoodFunction(foodNumber, foodPrefab);
             TimeCount = 0;
+        } else if (TimeCount <= 3) {
             speedAvg = speedCount(speedAvgNum, speedAvg);
         }
     }
